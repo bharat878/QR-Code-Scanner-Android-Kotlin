@@ -16,7 +16,6 @@ import me.dm7.barcodescanner.zbar.ZBarScannerView
 
 class QRScannerFragment : Fragment(), ZBarScannerView.ResultHandler {
 
-  //  class QRScannerFragment : Fragment() {
 
     companion object {
 
@@ -36,15 +35,7 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
     onClicks()
     return mView.rootView
 }
-//
-//    private fun init() {
-//        dbHelperI = DbHelper(QrResultDataBase.getAppDatabase(context!!)!!)
-//    }
 
-//    private fun initViews() {
-//        initializeQRCamera()
-//        setResultDialog()
-//    }
 
     private fun initializeQRCamera() {
         scannerView = ZBarScannerView(context)
@@ -59,45 +50,13 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
         startQRCamera()
         mView.containerScanner.addView(scannerView)
     }
-//
-//    private fun setResultDialog() {
-//        resultDialog = QrCodeResultDialog(context!!)
-//        resultDialog.setOnDismissListener(object : QrCodeResultDialog.OnDismissListener {
-//            override fun onDismiss() {
-//                resetPreview()
-//            }
-//        })
-//    }
 
-
-//
-//    private fun onQrResult(contents: String?) {
-//        if (contents.isNullOrEmpty())
-//            showToast("Empty Qr Result")
-//        else
-//            saveToDataBase(contents)
-//    }
-
-//    private fun showToast(message: String) {
-//        Toast.makeText(context!!, message, Toast.LENGTH_SHORT).show()
-//    }
-//
-//    private fun saveToDataBase(contents: String) {
-//        val insertedResultId = dbHelperI.insertQRResult(contents)
-//        val qrResult = dbHelperI.getQRResult(insertedResultId)
-//        resultDialog.show(qrResult)
-//    }
 
     private fun startQRCamera() {
         scannerView.startCamera()
     }
 
-//    private fun resetPreview() {
-//        scannerView.stopCamera()
-//        scannerView.startCamera()
-//        scannerView.stopCameraPreview()
-//        scannerView.resumeCameraPreview(this)
-//    }
+
 
     private fun onClicks() {
         mView.flashToggle.setOnClickListener {
@@ -140,7 +99,7 @@ override fun handleResult(rawResult: Result?)
 
     Toast.makeText(context!!,rawResult?.contents,Toast.LENGTH_LONG).show()
     scannerView.resumeCameraPreview(this)
-   // Toast.makeText(context!!,rawResult,Toast.LENGTH_LONG).show()
+
 }
 
 
